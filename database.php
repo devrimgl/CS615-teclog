@@ -4,9 +4,9 @@ class Db {
     
     protected $con;
     private $host = "us-cdbr-azure-west-c.cloudapp.net";
-    private $user = "beb85ac56ef646";
-    private $pwd = "6cfd854a";
-    private $db = "TecLog1450232DB";
+    private $user = "b34e58db768548";
+    private $pwd = "fbfbc0f2";
+    private $db = "acsm_36631699457a663";
     
     //Creates a PDO conection & sets error mode to exceptions
     public function __construct(){
