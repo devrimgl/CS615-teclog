@@ -1,12 +1,12 @@
 <?php
 
 class Db {
-    
+   
     protected $con;
     private $host = "us-cdbr-azure-west-c.cloudapp.net";
-    private $user = "b34e58db768548";
-    private $pwd = "fbfbc0f2";
-    private $db = "acsm_36631699457a663";
+    private $user = "b9d88747e7d806";
+    private $pwd = "d8ed1b61";
+    private $db = "TecLogDBDevrim";
     
     //Creates a PDO conection & sets error mode to exceptions
     public function __construct(){
