@@ -32,7 +32,8 @@ if(isset($_REQUEST['action'])) {
             break;
         case 'new':
             $db->createNote("New note.");
-            $newId = $db->getMaxId();
+            echo  "<script>alert('Check below of page!!')</script>";
+	    $newId = $db->getMaxId();
             setcookie("ACTIVE_NOTE_ID", $newId);
             $activeNoteId = $newId;
             break;
