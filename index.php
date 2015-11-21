@@ -21,6 +21,7 @@ if(isset($_REQUEST['action'])) {
     switch($_REQUEST['action']) {
         case 'delete':
             $db->deleteNote($activeNoteId);
+	    // After deleting the note an alert appears
 	    echo  "<script>alert('Note deleted!!')</script>";
             $newId = $db->getMaxId();
             setcookie("ACTIVE_NOTE_ID", $newId);
@@ -28,10 +29,12 @@ if(isset($_REQUEST['action'])) {
             break;
         case 'update':
             $db->updateNote($_COOKIE['ACTIVE_NOTE_ID'], $_REQUEST['content']);
+	    // After updating the note an alert appears
 	    echo  "<script>alert('Updated!!')</script>";
             break;
         case 'new':
             $db->createNote("New note.");
+	    // After creating new note, an alert about where the note frame appears
             echo  "<script>alert('Check below of page for new note!!')</script>";
 	    $newId = $db->getMaxId();
             setcookie("ACTIVE_NOTE_ID", $newId);
