@@ -20,14 +20,15 @@ if(isset($_COOKIE['ACTIVE_NOTE_ID'])) {
 if(isset($_REQUEST['action'])) {
     switch($_REQUEST['action']) {
         case 'delete':
-	    echo  "<script>alert('www.teknodice.com')</script>";
             $db->deleteNote($activeNoteId);
+	    echo  "<script>alert('Note deleted!!')</script>";
             $newId = $db->getMaxId();
             setcookie("ACTIVE_NOTE_ID", $newId);
             $activeNoteId = $newId;
             break;
         case 'update':
             $db->updateNote($_COOKIE['ACTIVE_NOTE_ID'], $_REQUEST['content']);
+	    echo  "<script>alert('Updated!!')</script>";
             break;
         case 'new':
             $db->createNote("New note.");
