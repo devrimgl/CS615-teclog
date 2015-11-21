@@ -44,6 +44,24 @@ class Db {
         }
     }
 
+// User table for user information - email authantication, recovery are missing 
+    public function createUserTable() {
+        try {
+            $sql = "CREATE TABLE IF NOT EXISTS users (
+                       id INT(11) AUTO_INCREMENT,
+		       userName CHAR(50),
+		       userPassword CHAR(8),
+                       last_modified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                       content text,
+                       PRIMARY KEY(id)
+                    );";
+            $this->con->query($sql);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+    	
     public function dropTable() {
         try {
             $sql = "DROP TABLE notes;";
