@@ -7,6 +7,9 @@ class Db {
     private $user = "b9d88747e7d806";
     private $pwd = "d8ed1b61";
     private $db = "TecLogDBDevrim";
+    // User credentials to test
+    private $userName = "test";
+    private $userPassword = "test";
     
     //Creates a PDO conection & sets error mode to exceptions
     public function __construct(){
@@ -54,6 +57,19 @@ class Db {
                        last_modified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                        content text,
                        PRIMARY KEY(id)
+                    );";
+            $this->con->query($sql);
+	    insertUser();
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    public function insertUser(){
+	try {
+            $sql = "INSERT INTO users(userName, userPassword)
+			VALUES($userName, $userPassword)
                     );";
             $this->con->query($sql);
             return true;
